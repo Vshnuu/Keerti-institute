@@ -1,0 +1,307 @@
+{% extends 'register/basic.html' %}
+
+{%block style %}
+{%load static%}
+.container{
+    height: calc(100vh - 70px);
+}
+.background-img::before{
+    background-image: linear-gradient(rgba(0,0,0,0.9),transparent),url("{%static 'register/bg.jpg' %}");
+    background-size: cover;
+    background-position: center;
+    background-repeat : no-repeat;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom:0;
+    position: absolute;
+    opacity: 0.7;
+    z-index: -1;
+}
+.maintext{
+    position : absolute;
+    bottom : 8%;
+    color: rgb(255, 249, 249);
+    left : 2%;
+}
+.maintext p{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    color: white;
+}
+.maintext h1{
+    font-size: 150px;
+    line-weight: 160px;
+    margin-left : -8px;
+    margin: 0;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    background: url("{% static 'register/back.png' %}");
+    -webkit-background-clip: text;
+    background-position: 0 0;
+    animation: back 20s linear infinite;
+    }
+    @keyframes back {
+        100% {
+            background-position : 2000px 0;
+        }
+}
+.maintext h3{
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0;
+    color: white;
+}
+@media(max-width: 900px){
+    .maintext h1{
+        font-size: 100px;
+    }
+    .maintext h3{
+        font-size: 30px;
+    }
+    .maintext p{
+        font-size: 16px;
+    }
+    .container-2 .rows{
+        flex-direction: column;
+        padding: 20px;
+    }
+}
+
+
+.container-2{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+.container-2 h1{
+    font-size: 36px;
+    font-weight: 600;
+}
+.container-2 p{
+    font-weight: 300;
+    line-height: 22px;
+    font-size: 14px;
+    padding:  10px;
+}
+.container-2 .rows{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.cols-row{
+    color: white;
+    flex-basis: 25%;
+    border-radius: 10px;
+    background: #8A9A5B;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    margin-bottom: 4%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.cols-row h3{
+    text-align: center;
+    margin: 10px;
+    font-weight: 600;
+}
+.cols-row:hover{
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.719);
+}
+
+.container-3{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 120px;
+}
+.container-3 h1{
+    font-size: 36px;
+    font-weight: 600;
+}
+.container-3 p{
+    font-weight: 300;
+    line-height: 22px;
+    font-size: 14px;
+    padding:  10px;
+}
+
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon{
+    background-color: lightgray;
+
+}
+
+.carousel-control-prev{
+    width: 8%;
+}
+
+.carousel-control-next{
+    width: 8%;
+}
+
+.rows{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.courses-col{
+    flex-basis: 32%;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 30px;
+}
+.container-3 h3{
+    text-align: center;
+    margin: 10px;
+    font-weight: 600;
+}
+.course-img img{
+    width: 90%;
+    display: flex;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10%;
+    cursor : pointer;
+    padding : 8%;
+}
+
+
+
+
+.layer{
+    background:transparent;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 90%;
+    margin-left: 10%;
+    position: absolute;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.layer:hover{
+    background: rgba(138, 154, 91, 0.534);
+}
+.layer h3{
+    font-size: 26px;
+    left: 45%;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    font-weight: 300;
+    text-align: center;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.layer:hover h3{
+    bottom: 49%;
+    opacity: 1;
+}
+{%endblock %}
+
+{%block body%}
+{% load static %}
+<section class="container" xmlns="http://www.w3.org/1999/html">
+        <div class="background-img"></div>
+        <div class="maintext">
+            <h1>KEERTI</h1>
+            <h3>&nbsp;INSTITUTE</h3>
+            <p>&nbsp; Become Knowledgeable, <br/>&nbsp; Being Knowledgeable makes you Sought after.</p>
+        </div>
+    </section>
+
+
+
+    <section class="container-2">
+            <h1>What's New</h1>
+            <p> A course usually covers an individual subject. Courses generally have a fixed program of sessions every week during the term, called lessons or classes.<br> Students may receive a grade and academic credit after completion of the course.</p>
+            <div class="rows">
+                <div class="cols-row">
+                    <h3>EXCEL</h3>
+                    <p>This Advanced Excel Course will empower the participants to be able to perform complex calculations, more efficiently, using various Excel functions. Also train them in organizing and analyzing large volumes of data. </p>
+                </div>
+                <div class="cols-row">
+                    <h3>MARKETING</h3>
+                    <p> Keerti Certified Course in Digital Marketing includes training you on various aspects of DM, namely SEO, Email Marketing, Social Media Marketing,  <br>Branding and marketing exercise using digital platforms.</p>
+                </div>
+                <div class="cols-row">
+                    <h3>MS-CIT</h3>
+                    <p>Understand fundamentals of programming such as variables, conditional and iterative execution, methods, etc. Understand fundamentals of object-oriented programming in Java, including defining Classes, invoking methods, using class libraries.</p>
+                </div>
+            </div>
+    </section>
+
+<section class="conatiner-3">
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+
+          {% for i in range %}
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{i}}" aria-label="Slide 2"></button>
+          {% endfor %}
+
+      </div>
+      <div class="carousel-inner">
+          <div class="carousel-item active">
+
+
+              <div class="rows">
+              <div class="courses-col">
+                    <div class="course-img" >
+                        <img src="/media/{{product.0.product_image}}">
+                    </div>
+                    <div class="layer">
+                        <a href="/class/product/{{0.id}}"><h3>{{product.0.product_name}}</h3></a>
+                    </div>
+                </div>
+
+
+                  {% for i in product|slice:"1:"%}
+                  <div class="courses-col">
+                    <div class="course-img">
+                        <img src="/media/{{i.product_image}}">
+                    </div>
+                    <div class="layer">
+                        <a href="/class/product/{{i.id}}"><h3>{{i.product_name}}</h3></a>
+                    </div>
+                  </div>
+
+
+                  {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+              </div>
+              </div><div class="carousel-item">
+                    <div class="rows">
+                  {%endif %}
+                  {% endfor %}
+                    </div>
+
+
+          </div>
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+
+</section>
+
+{% endblock %}
+

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel</title>
+    <style>
+       {% load static %}
+*{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+.navbar{
+    position: sticky;
+    margin: 0;
+    height: 70px;
+    background: #8A9A5B;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 36px;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.navbar img{
+    height: 50px;
+    width: 70px;
+    cursor: pointer;
+}
+
+.navmenu{
+    display: flex;
+    flex: 1;
+    margin-left: 25px;
+    align-items: center;
+    justify-content: center;
+}
+.navmenu span{
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    cursor: pointer;
+}
+.navmenu span a{
+    text-decoration: none;
+    color : white;
+    font-weight: 400;
+    font-size: 15px;
+    padding: 0 10px;
+    letter-spacing: 1.42px;
+    position: relative;
+}
+.navmenu span a:after{
+    content: '';
+    width: 0;
+    height: 3px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    transition: 0.3s;
+}
+.navmenu span a:hover::after{
+    width: 50%;
+}
+@media(max-width: 800px) {
+    .navmenu{
+        display: none;
+    }
+}
+
+.navregister{
+    display: flex;
+    align-items: center;
+}
+.navregister a{
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(23,26,32,0.8);
+    height: 40px;
+    width: 130px;;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    opacity: 0.85;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 8px;
+    letter-spacing: 1.9px;
+    transition: 0.5s;
+}
+.navregister :hover{
+    background-color: rgba(23,26,32,10);
+}
+.container{
+    padding-left: 20px;
+    margin-top: 5%;
+}
+.container img{
+    height: auto;
+    width: 350px;
+    padding-bottom: 30px;
+}
+.excel-info{
+    margin-left: 4%;
+}
+.excel-info h1{
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 0.6px;
+}
+.excel-info p{
+    font-size: 20px;
+    margin-left: 30px;
+}
+.content-info{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+.content-info h2{
+    font-size: 30px;
+    font-weight: 600;
+    padding-top: 5%;
+    margin-left: 4%;
+}
+.container .rows{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.cols-row{
+    color: white;
+    flex-basis: 25%;
+    border-radius: 10px;
+    background: #8A9A5B;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    margin-bottom: 4%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.cols-row h3{
+    text-align: center;
+    margin: 10px;
+    font-weight: 600;
+}
+.cols-row:hover{
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.719);
+}
+.content-info p{
+    font-size: 20px;
+    margin-left: 4%;
+}
+.content-info{
+    padding: 20px 10px;
+}
+.container.rows{
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-evenly;
+}
+    </style>
+</head>
+<body>
+    {% load static %}
+    <header class="navbar">
+        <a href="/class/"><img src="{%static 'register/KC.png' %}"></a>
+        <div class="navmenu" id="navlink">
+            <span>
+                <a href="/class/">HOME</a>
+            </span>
+            <span>
+                <a href=''>COURSE</a>
+            </span>
+            <span>
+                <a href=''>ABOUT</a>
+            </span>
+            <span>
+                <a href=''>CONTACT</a>
+            </span>
+        </div>
+        <div class="navregister">
+           <a href='/class/register' methods="post">{%csrf_token%}
+              REGISTER
+           </a>
+        </div>
+    </header>
+
+
+
+    <section class="container">
+        <img src="/media/{{product.product_image}}">
+        <div class="excel-info">
+            <h1>{{product.product_name}}</h1>
+            <p>{{product.desc}}</p>
+
+        </div>
+        <div class="content-info">
+            <h2>CONTENT</h2>
+        </div>
+        <div class="rows">
+            <div class="cols-row">
+                <h3>{{product.product_contentname1}}</h3>
+                <p>
+                  {{product.product_content1}}
+                </p>
+            </div>
+            <div class="cols-row">
+                <h3>{{product.product_contentname2}}</h3>
+                <p>
+                   {{product.product_content2}}
+                </p>
+            </div>
+            <div class="cols-row">
+                <h3>{{product.product_contentname3}}</h3>
+                <p>
+                    {{product.product_content3}}
+                </p>
+            </div>
+        </div>
+        <div class="content-info">
+            <h2>ELIGIBILITY</h2>
+            <p>{{product.product_info}}</p>
+        </div>
+        <div class="content-info">
+            <h2>DURATION</h2>
+            <p>{{product.product_duration}}</p>
+        </div>
+    </section>
+</body>
+</html>
+
+
+
+
+
+
